@@ -1,12 +1,16 @@
 -- PGPASSWORD=password psql -U postgres -h localhost -f init.sql
-
+--DROP OUT THE TABLE AND DB FOR DEBUG PURPOSE
 DROP DATABASE IF EXISTS host_agent;
 DROP TABLE IF EXISTS host_usage;
 DROP TABLE IF EXISTS host_info;
 
+--Create host_agent database
 CREATE DATABASE host_agent;
+
+--Connect to the database just created.
 \connect host_agent;
 
+--Create the first table host_info
 CREATE TABLE host_info
 (
 	id		SERIAL NOT NULL,
@@ -22,6 +26,7 @@ CREATE TABLE host_info
 	CONSTRAINT host_info_un UNIQUE (hostname)
 );
 
+--Create the second table host_usage
 CREATE TABLE host_usage
 (
 	"timestamp"	TIMESTAMP NOT NULL,
