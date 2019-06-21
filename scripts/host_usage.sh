@@ -8,7 +8,7 @@ pw=$5
 
 #Gather information about memory usage and cpu usage
 timestamp=$(date "+%Y-%m-%d %H:%M:%S")
-hostid=$(cat /home/centos/dev/jrvs/bootcamp/host_agent/scripts/id.txt)
+hostid=$(cat $PWD/id.txt)
 memory_free=$(vmstat | tail -n1 | awk '{print $4}')
 cpu_idle=$(vmstat | tail -n1 | awk '{print $15}')
 cpu_kernel=$(vmstat | tail -n1 | awk '{print $14}')
