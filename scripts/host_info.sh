@@ -7,7 +7,7 @@ user=$4
 pw=$5
 
 ##Gather information about the CPU and Total Memory
-myid=$(PGPASSWORD=$pw psql -U $user -h $hostName -d $dbname -c "select count(*) from host_info" |  tail -n3 | head -1 )
+myid=$(PGPASSWORD=$pw psql -U $user -h $hostName -d $dbname -c "select count(*)+1 from host_info" |  tail -n3 | head -1 )
 echo $myid > id.txt
 hostname=$(hostname -f)
 cpu_model=$(lscpu | grep 'Model name' | awk -F': *' '{print $2}')
