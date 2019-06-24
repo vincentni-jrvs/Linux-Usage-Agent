@@ -14,7 +14,7 @@ get_host_id() {
 
 #Helper function
 get_vmstat_value() {
-	value=$(vmstat $1| tail -n1 | awk -v temp=$2 '{print $temp}' | xargs)
+	value=$(vmstat $1 --unit m| tail -n1 | awk -v temp=$2 '{print $temp}' | xargs)
 	#echo "value=$value"
 }
 
